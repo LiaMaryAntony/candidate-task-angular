@@ -28,7 +28,9 @@ export const employeeReducer = createReducer(
     const filteredEmployees = state.employees.filter(
       (employee) =>
         employee.name.toLowerCase().includes(filter.toLowerCase()) ||
-        employee.email.toLowerCase().includes(filter.toLowerCase()),
+        employee.email.toLowerCase().includes(filter.toLowerCase()) ||
+        employee.role.toLowerCase().includes(filter.toLowerCase()) ||
+        employee.status === (filter.toLowerCase() === 'completed'? true : false),
     );
     return {
       ...state,
