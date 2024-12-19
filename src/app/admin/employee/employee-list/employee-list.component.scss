@@ -1,0 +1,35 @@
+table {
+    width: 100%;
+  }
+  
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width: 25%;
+  }
+  .mat-column-status{
+    min-width: 155px;
+  }
+  .flex{
+    display: flex;
+    gap: 20px;
+  }
+  .menuBtn{
+    background: #0bca5c;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 53px;
+    border-radius: 10px;
+    .mat-icon{
+      color: #fff;
+      font-size: 2rem;
+      width: 2em;
+      height: 2em;
+      line-height: 2em;
+    }
+  }

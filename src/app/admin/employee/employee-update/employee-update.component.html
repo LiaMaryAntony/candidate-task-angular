@@ -1,0 +1,68 @@
+<h2 mat-dialog-title>Update Employee</h2>
+<mat-dialog-content>
+<div class="my-dialog-content">
+  <div class="row">
+    <div class="col-sm-12">
+        <div class="form_area">
+          <form [formGroup]="employeeEntryForm">
+            <div class="form_panel">
+              <mat-form-field class="example-form-field" appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput type="text" formControlName="name">
+                <mat-error *ngIf="employeeEntryForm.controls['name'].hasError('required')">Employee Name is
+                  required.</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="form_panel">
+              <mat-form-field class="example-form-field" appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput type="text" formControlName="email">
+                <mat-error *ngIf="employeeEntryForm.controls['email'].hasError('required')">Email is
+                  required.</mat-error>
+                <mat-error *ngIf="employeeEntryForm.controls['email'].hasError('email')">Email Not Valid.</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="form_panel">
+              <div class="five_panel">
+                <mat-form-field class="example-form-field" appearance="outline">
+                  <mat-label>Role</mat-label>
+                  <input matInput type="text" formControlName="role">
+                  <mat-error *ngIf="employeeEntryForm.controls['role'].hasError('required')">Roll is
+                    required.</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Status</mat-label>
+                  <mat-select formControlName="status">
+                    <mat-option [value]="false">Pending</mat-option>
+                    <mat-option [value]="true">Complete</mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="employeeEntryForm.controls['status'].hasError('required')">Status is
+                    required.</mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="form_panel">
+              <mat-form-field appearance="outline">
+                <mat-label> Joining Date</mat-label>
+                <input matInput [matDatepicker]="picker" [max]="today" formControlName="joining_date">
+                <mat-error *ngIf="employeeEntryForm.controls['joining_date'].hasError('required')">Date of Birth is
+                  required.</mat-error>
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </div>
+            <div class="button-container">
+              <button type="button" class="btn btn-secondary button" type="submit" (click)="updateEmployee()">
+                <span>
+                  Update
+                </span>
+              </button>
+              <button type="button" class="btn btn-danger button" (click)="onCancel()">Cancel</button>
+            </div>
+          </form>
+        </div>
+    </div>
+  </div>
+</div>
+</mat-dialog-content>
