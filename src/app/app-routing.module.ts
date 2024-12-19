@@ -4,11 +4,11 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/user/employee-list',
+    redirectTo: '/employee/employee-list',
     pathMatch: 'full'
   },
   {
-    path: 'user',
+    path: 'employee',
     loadChildren: () => import('./admin/employee/employee.module').then((m) => m.EmployeeModule),
   }
 ];

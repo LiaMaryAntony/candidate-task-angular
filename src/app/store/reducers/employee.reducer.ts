@@ -25,12 +25,14 @@ export const employeeReducer = createReducer(
     error,
   })),
   on(setFilter, (state, { filter }) => {
+    const lowerCaseFilter = filter.toLowerCase();
     const filteredEmployees = state.employees.filter(
       (employee) =>
-        employee.name.toLowerCase().includes(filter.toLowerCase()) ||
-        employee.email.toLowerCase().includes(filter.toLowerCase()) ||
-        employee.role.toLowerCase().includes(filter.toLowerCase()) ||
-        employee.status === (filter.toLowerCase() === 'completed'? true : false),
+        employee.name.toLowerCase().includes(lowerCaseFilter) ||
+        employee.email.toLowerCase().includes(lowerCaseFilter) ||
+        employee.role.toLowerCase().includes(lowerCaseFilter) ||
+        (lowerCaseFilter.includes('completed') && employee.status === true ) ||
+        (lowerCaseFilter.includes('pending')&& employee.status === false )
     );
     return {
       ...state,

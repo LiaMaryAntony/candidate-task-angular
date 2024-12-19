@@ -46,12 +46,10 @@ table {
   
     // Title Styling
     h1 {
-      content: attr(cardTitle);
-      display: block;
-      font-size: 1.5rem;
-      font-weight: bold; 
-      color: black; 
-      margin-bottom: 0.75rem; 
+      font-size: 1.5rem; // Larger font
+      font-weight: bold;
+      color: black;
+      margin-bottom: 0.75rem;
     }
   }
   
